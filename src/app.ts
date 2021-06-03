@@ -1,13 +1,25 @@
-// import express,{Application, Request, Response, NextFunction} from 'express'
+// https://www.codewars.com/kata/5264d2b162488dc400000001
 
-// const app: Application = express()
+function spinWords(words: string) {
+    return words
+      .split(' ')
+      .map((word: string) => {
+        if (word.length > 4) {
+          return word.split('').reverse().join('');
+        } else {
+          return word;
+        }
+      })
+      .join(' ');
+  }
+  
+  console.log(spinWords2('Hey fellow warriors'))
 
-// const add = (a: number, b:number):number => a + b
-
-// app.get('/',(req: Request, res: Response, next: NextFunction) => {
-//     console.log(add(5,6))
-//     res.send('hello')
-// })
-
-// app.listen(5000,() => console.log('Server running'))
-
+//   alternative
+function spinWords2(words: string) {
+    return words
+      .split(' ') 
+      .map((w: string) => w.length >= 5 ? w.split('').reverse().join('') : w)
+      .join(' '); 
+  }
+  
